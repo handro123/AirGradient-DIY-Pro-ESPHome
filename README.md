@@ -1,4 +1,4 @@
-# Using AirGradient DIY Pro kit with HomeAssistant
+# Using AirGradient DIY Pro kit with ESPHome / HomeAssistant
 
 I ordered 2 DIY Pro kits. After getting them assembled I flashed them using the provided firmware and added them to the AirGradient Dashboard for a few days to make sure everything was working as expected. After collecting data for a few days, I moved ahead with getting it to work with Home Assistant / ESPHome.
 
