@@ -114,7 +114,7 @@ sensor:
     uart_id: uart_2
     co2:
       id: co2
-      name: "airgradient-XXXXXX SenseAir CO2 Value"
+      name: "airgradient-XXXXXX SenseAir CO2"
     update_interval: 60s
 
   - platform: sgp4x
