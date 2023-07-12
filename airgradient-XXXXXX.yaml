@@ -10,6 +10,11 @@ logger:
 # Enable Home Assistant API
 api:
 
+# remote restart button
+button:
+  - platform: restart
+    name: "airgradient-XXXXXX restart"
+
 ota:
   password: !secret ota_password
 
@@ -56,7 +61,7 @@ display:
       
       // This is to duplicate the look of the original firmware. 
       it.printf(0, 0, id(MonospaceTypewriter), "PM:%.0f CO2:%.0f", id(pm25).state, id(co2).state);
-      it.printf(0, 22, id(MonospaceTypewriter), "AQI:%.0f TVOC:TBD", aqi_us);
+      it.printf(0, 22, id(MonospaceTypewriter), "AQI:%.0f TVOC:%.0f", aqi_us, id(voc).state);
       
       // If you want temp in Fahrenheit
       it.printf(0, 44, id(MonospaceTypewriter), "F:%.2f H:%.0f%%", ((id(temp).state * 1.8) + 32), id(humidity).state);
@@ -68,12 +73,12 @@ uart:
   - rx_pin: D5
     tx_pin: D6
     baud_rate: 9600
-    id: uart1
+    id: uart_1
     
   - rx_pin: D4
     tx_pin: D3
     baud_rate: 9600
-    id: uart2
+    id: uart_2
 
 sensor:
   - platform: sht3xd
@@ -84,13 +89,13 @@ sensor:
       id: humidity
       name: "airgradient-XXXXXX Humidity"
     address: 0x44
-    update_interval: 5s
+    update_interval: 30s
 
   - platform: pmsx003
     # type can be PMSX003, PMS5003S, PMS5003T, PMS5003ST
     # https://esphome.io/components/sensor/pmsx003.html
     type: PMSX003
-    uart_id: uart1
+    uart_id: uart_1
 #    pm_1_0:
 #      id: pm10
 #      name: "Particulate Matter <1.0µm Concentration"
@@ -103,10 +108,24 @@ sensor:
 #    formaldehyde:
 #      id: hcho
 #      name: "Formaldehyde (HCHO) concentration in µg per cubic meter"
+    update_interval: 30s
 
   - platform: senseair
-    uart_id: uart2
+    uart_id: uart_2
     co2:
       id: co2
       name: "airgradient-XXXXXX SenseAir CO2 Value"
+    update_interval: 60s
+
+  - platform: sgp4x
+  # https://esphome.io/components/sensor/sgp4x.html
+    voc:
+      id: voc
+      name: "airgradient-XXXXXX TVOC Index"   
+    nox:
+      id: nox
+      name: "airgradient-XXXXXX NOx Index"
+    compensation:
+      humidity_source: humidity
+      temperature_source: temp
     update_interval: 60s
