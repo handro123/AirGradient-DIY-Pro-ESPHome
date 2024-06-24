@@ -1,7 +1,9 @@
 # 2024 Update
 
 I am no longer using this myself and have moved to the stock AirGraident firmware for PCB v3.7 which also includes Home Assistant support: https://forum.airgradient.com/t/test-version-for-pcb-v-3-7-with-ha-support-and-other-features/2214
-- Even though this says v3.7, it also works on my DIY Pro with PCB v3.3.
+
+Even though this says v3.7, it also works on my DIY Pro with PCB v3.3.
+
 Another great reference if you want to continue to use ESPHome is from MallocArray: https://github.com/MallocArray/airgradient_esphome
 
 
