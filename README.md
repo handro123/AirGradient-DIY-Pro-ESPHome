@@ -1,3 +1,10 @@
+# 2024 Update
+
+I am no longer using this myself and have moved to the stock AirGraident firmware for PCB v3.7 which also includes Home Assistant support: https://forum.airgradient.com/t/test-version-for-pcb-v-3-7-with-ha-support-and-other-features/2214
+- Even though this says v3.7, it also works on my DIY Pro with PCB v3.3.
+Another great reference if you want to continue to use ESPHome is from MallocArray: https://github.com/MallocArray/airgradient_esphome
+
+
 # Using AirGradient DIY Pro kit with ESPHome / HomeAssistant
 
 I ordered 2 DIY Pro kits. After getting them assembled I flashed them using the provided firmware and added them to the AirGradient Dashboard for a few days to make sure everything was working as expected. After collecting data for a few days, I moved ahead with getting it to work with Home Assistant / ESPHome.
@@ -9,7 +16,8 @@ I ordered 2 DIY Pro kits. After getting them assembled I flashed them using the 
 - The OLED screen is larger and a different model, need to use model "SH1106 128x64". 
 - No TVOC sensor yet. Updated sensor coming soon hopefully: https://forum.airgradient.com/t/sgp40-tvoc-sensor/377/4
 - From what I read it was best to change the Sensor names to avoid conflicts in Home Assistant. 
-  - I used the board address / ID / serial to keep track of them, replace XXXXXX with your board ID, or if you only have one kit them remove it entirely. 
+  - I used the board address / ID / serial to keep track of them, replace XXXXXX with your board ID, or if you only have one kit them remove it entirely.
+- All of this was for the DIY Pro PCB v3.3 with SGP41 sensor added.  
 
 
 ## Instructions
